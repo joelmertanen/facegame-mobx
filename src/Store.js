@@ -12,11 +12,12 @@ class Store {
   @observable topScore = 0;
 
   @computed get makingARecord() {
-    return this.correctChoices > this.topScore;
+    return this.topScore > 0 && this.correctChoices >= this.topScore;
   }
 
   @action selectCorrect() {
     this.correctChoices++;
+    this.topScore = Math.max(this.correctChoices, this.topScore);
   }
 
   @action selectWrong() {

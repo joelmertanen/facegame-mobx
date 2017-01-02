@@ -3,7 +3,7 @@ import React from 'react';
 const NameChoices = ({options, onRight, onWrong, correctPerson}) => {
   const buttons = options.map(option => {
     return <button
-      key={option.name}
+      key={option.id}
       onClick={ option.id === correctPerson ? onRight : onWrong }
       >{option.name}</button>;
   });
@@ -15,7 +15,7 @@ NameChoices.propTypes = {
   options: React.PropTypes.array.isRequired,
   onRight: React.PropTypes.func.isRequired,
   onWrong: React.PropTypes.func.isRequired,
-  correctPerson: React.PropTypes.string
+  correctPerson: React.PropTypes.string.isRequired
 };
 
 export default NameChoices;
