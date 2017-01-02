@@ -1,3 +1,13 @@
 body {
   background: lightgrey;
 }
+
+.navigation ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navigation ul li {
+  display: inline-block;
+  margin: 10px;
+}

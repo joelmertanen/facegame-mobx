@@ -3,29 +3,14 @@ import ReactDOM from 'react-dom';
 import Store from './Store';
 import PeopleStore from './PeopleStore';
 import Game from './components/Game';
+import Main from './components/Main';
 import { Provider } from 'mobx-react';
-import { IndexRedirect, Router, Route, Link } from 'react-router'
+import { IndexRedirect, Router, Route } from 'react-router'
 import { browserHistory } from 'react-router'
 
 const root = document.createElement('div');
 root.id = 'app';
 document.body.appendChild(root);
-
-
-const Main = React.createClass({
-  render() {
-    return (
-      <div>
-        <h1>Facegame</h1>
-        <ul>
-          <li><Link to="/game">Play</Link></li>
-          <li><Link to="/topten">Topten</Link></li>
-        </ul>
-        {this.props.children}
-      </div>
-    )
-  }
-});
 
 const Topten = () => <div></div>;
 
