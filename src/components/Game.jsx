@@ -1,9 +1,9 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import MyComponent from './MyComponent';
 
-@observer
-class App extends React.Component {
+@inject('store') @observer
+class Game extends React.Component {
   constructor(props) {
     super(props);
     this.store = props.store;
@@ -19,8 +19,9 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
+
+Game.propTypes = {
   store: React.PropTypes.object,
 };
 
-export default App;
+export default Game;

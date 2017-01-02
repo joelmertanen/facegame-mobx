@@ -1,5 +1,5 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 
 function MyComponent({ store }) {
   const clickButton = store.clickButton.bind(store);
