@@ -21,7 +21,7 @@ class Store {
 
   @action nextRound() {
     this.peopleToGuess = sampleSize(this.allPeople, 4);
-    this.faceShown = this.peopleToGuess.url;
+    this.correctPerson = this.peopleToGuess[0];
   }
 
   allPeople = [{
@@ -34,7 +34,7 @@ class Store {
     name: 'Bob',
     url: AverageMan
   }, {
-    name: 'Charles'
+    name: 'Charles',
     url: Charles
   }, {
     name: 'Ann',
@@ -46,6 +46,9 @@ class Store {
   }
 
   constructor() {
+    this.allPeople = this.allPeople.map(person => {
+      return {...person, id: Math.random().toString()};
+    });
     this.nextRound();
   }
 }

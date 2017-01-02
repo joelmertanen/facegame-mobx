@@ -1,7 +1,6 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
 import NameChoices from './NameChoices';
-import averageFace from '../assets/average_woman.jpg';
 import Stats from './Stats';
 
 @inject('store') @observer
@@ -12,12 +11,12 @@ class Game extends React.Component {
   }
 
   render() {
-    console.log(this.store.peopleToGuess);
     return (
       <div>
-        <img style={ { width: '150px' } } src={averageFace} />
+        <img style={ { width: '150px' } } src={this.store.correctPerson.url} />
         <NameChoices
           options={this.store.peopleToGuess}
+          correctPerson={this.store.correctPerson.id}
           onRight={this.store.selectCorrect.bind(this.store)}
           onWrong={this.store.selectWrong.bind(this.store)}
           />
