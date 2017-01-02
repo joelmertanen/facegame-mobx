@@ -1,6 +1,8 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import MyComponent from './MyComponent';
+import NameChoices from './NameChoices';
+import averageFace from '../assets/average_woman.jpg';
+import Stats from './Stats';
 
 @inject('store') @observer
 class Game extends React.Component {
@@ -8,17 +10,25 @@ class Game extends React.Component {
     super(props);
     this.store = props.store;
   }
+
   render() {
+    console.log(this.store.peopleToGuess);
     return (
       <div>
-        <h2>Welcome to the {this.store.name} project.</h2>
-        <h3>This project is {this.store.description}.</h3>
-        <MyComponent store={this.store} />
+        <img style={ { width: '150px' } } src={averageFace} />
+        <NameChoices
+          options={this.store.peopleToGuess}
+          onRight={this.store.selectCorrect.bind(this.store)}
+          onWrong={this.store.selectWrong.bind(this.store)}
+          />
+        <Stats
+          makingARecord={this.store.makingARecord}
+          correctChoices={this.store.correctChoices}
+          />
       </div>
     );
   }
 }
-
 
 Game.propTypes = {
   store: React.PropTypes.object,
