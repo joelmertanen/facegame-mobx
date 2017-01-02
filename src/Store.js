@@ -19,37 +19,8 @@ class Store {
     this.correctChoices++;
   }
 
-  @action nextRound() {
-    this.peopleToGuess = sampleSize(this.allPeople, 4);
-    this.correctPerson = this.peopleToGuess[0];
-  }
-
-  allPeople = [{
-    name: 'Tom',
-    url: TomCruise
-  }, {
-    name: 'Vin',
-    url: VinDiesel
-  }, {
-    name: 'Bob',
-    url: AverageMan
-  }, {
-    name: 'Charles',
-    url: Charles
-  }, {
-    name: 'Ann',
-    url: AverageWoman
-  }];
-
   @action selectWrong() {
     this.correctChoices = 0;
-  }
-
-  constructor() {
-    this.allPeople = this.allPeople.map(person => {
-      return {...person, id: Math.random().toString()};
-    });
-    this.nextRound();
   }
 }
 

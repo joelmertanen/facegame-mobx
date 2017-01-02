@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 
 function Stats({makingARecord, correctChoices}) {
-  return <div>Stats: {makingARecord}, {correctChoices}</div>;
+  return <div>Stats: {makingARecord ? 'record!' : ''} {correctChoices}</div>;
 }
 
 Stats.propTypes = {

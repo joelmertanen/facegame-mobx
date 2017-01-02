@@ -3,20 +3,21 @@ import { inject, observer } from 'mobx-react';
 import NameChoices from './NameChoices';
 import Stats from './Stats';
 
-@inject('store') @observer
+@inject('store') @inject('peopleStore') @observer
 class Game extends React.Component {
   constructor(props) {
     super(props);
     this.store = props.store;
+    this.peopleStore = props.peopleStore;
   }
 
   render() {
     return (
       <div>
-        <img style={ { width: '150px' } } src={this.store.correctPerson.url} />
+        <img style={ { width: '150px' } } src={this.peopleStore.correctPerson.url} />
         <NameChoices
-          options={this.store.peopleToGuess}
-          correctPerson={this.store.correctPerson.id}
+          options={this.peopleStore.peopleToGuess}
+          correctPerson={this.peopleStore.correctPerson.id}
           onRight={this.store.selectCorrect.bind(this.store)}
           onWrong={this.store.selectWrong.bind(this.store)}
           />
