@@ -1,9 +1,7 @@
 import React from 'react';
-import { inject, observer } from 'mobx-react';
 import NameChoices from './NameChoices';
 import Stats from './Stats';
 
-@inject('store') @inject('peopleStore') @observer
 class Game extends React.Component {
   constructor(props) {
     super(props);
@@ -38,6 +36,7 @@ class Game extends React.Component {
     } else if (this.state.correct) {
       className = 'correct';
     }
+
     return (
       <div className={className}>
         <img style={ { width: '250px' } } src={this.peopleStore.correctPerson.url} />
@@ -55,5 +54,10 @@ class Game extends React.Component {
     );
   }
 }
+
+Game.propTypes = {
+  peopleStore: React.PropTypes.object.isRequired,
+  store: React.PropTypes.object.isRequired
+};
 
 export default Game;

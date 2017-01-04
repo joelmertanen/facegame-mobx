@@ -1,10 +1,10 @@
 import { observable, computed, action } from 'mobx';
 import { sampleSize } from 'lodash';
-import TomCruise from './assets/tom_cruise.jpg';
-import VinDiesel from './assets/vin_diesel.jpg';
-import AverageMan from './assets/average_man.jpg';
-import AverageWoman from './assets/average_woman.jpg';
-import Charles from './assets/charles.jpg';
+import TomCruise from '../assets/tom_cruise.jpg';
+import VinDiesel from '../assets/vin_diesel.jpg';
+import AverageMan from '../assets/average_man.jpg';
+import AverageWoman from '../assets/average_woman.jpg';
+import Charles from '../assets/charles.jpg';
 
 let allPeople = [{
   name: 'Tom',

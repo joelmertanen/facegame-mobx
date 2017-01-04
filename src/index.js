@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Store from './Store';
-import PeopleStore from './PeopleStore';
-import Game from './components/Game';
+import Store from './stores/Store';
+import PeopleStore from './stores/PeopleStore';
+import GameContainer from './components/GameContainer';
 import Main from './components/Main';
 import { Provider } from 'mobx-react';
 import { IndexRedirect, Router, Route } from 'react-router'
@@ -24,7 +24,7 @@ ReactDOM.render((
     <Router history={browserHistory}>
       <Route path="/" component={Main}>
         <IndexRedirect to="/game" />
-        <Route path="game" component={Game} />
+        <Route path="game" component={GameContainer} />
         <Route path="topten" component={Topten} />
       </Route>
     </Router>
